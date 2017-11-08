@@ -32,17 +32,17 @@ public class Course
     location = "unknown";
     students = new ArrayList<>();
     MAX = capacity;
-
   }
 
   /**
   * Add a student to the course.
   */
-  public void addStudent(Student newStudent, int capacity)
+  public void addStudent(Student newStudent)
   {
-      {
+    if(students.size() == MAX)
+        System.out.println("The class is full, you cannot enroll.");
+    else
         students.add(newStudent);
-      }
   }
 
   /**
@@ -137,4 +137,6 @@ public class Course
   {
     return courseID;
   }
+  
+  
 }

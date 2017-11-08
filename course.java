@@ -32,7 +32,6 @@ public class Course
     location = "unknown";
     students = new ArrayList<>();
     MAX = capacity;
-
   }
 
   /**
@@ -42,7 +41,7 @@ public class Course
   {
     if(students.size() == MAX)
         System.out.println("The class is full, you cannot enroll.");
-    else 
+    else
         students.add(newStudent);
   }
 
@@ -137,5 +136,13 @@ public class Course
   public String getCourseID()
   {
     return courseID;
+  }
+  
+  /**
+   * Print the courseID number to the output terminal.
+   */
+  public void printCourseDetails()
+  {
+      System.out.println(courseID);
   }
 }

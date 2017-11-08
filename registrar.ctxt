@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=registrar
+comment0.text=\n\ This\ registrar\ class\ represents\ a\ registrar\ in\ a\ educational\ system.\n\ This\ class\ hold\ the\ details\ of\ a\ registrar.\n\n\ @author\ Julian\ Rios\n\ @version\ 2017.11.07\n
+comment1.params=
+comment1.target=registrar()
+comment1.text=\n\ Create\ a\ new\ registrar\ with\ an\ empty\ collection\ of\ courses.\n
+comment2.params=newCourse
+comment2.target=void\ addCourse(Course)
+comment2.text=\n\ Add\ a\ course\ to\ the\ collection.\n
+comment3.params=courseToRemove
+comment3.target=void\ removeCourse(Course)
+comment3.text=\n\ Remove\ a\ course\ from\ the\ collection.\n
+comment4.params=
+comment4.target=void\ printAll()
+comment4.text=\n\ Print\ a\ list\ of\ all\ the\ courses\ offered.\n
+numComments=5
