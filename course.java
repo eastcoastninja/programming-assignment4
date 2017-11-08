@@ -8,7 +8,8 @@ import java.util.Scanner;
  * @version 2017.11.07
  */
 
-public class course {
+public class course
+{
   // course identifier
   private String courseID;
   // course start time
@@ -18,18 +19,19 @@ public class course {
   // collection of students
   private ArrayList<Student> students;
   // maximum capacity of students for course
-  private final int MAX_STUDENTS;
+  private int max;
 
   /**
   * Create a course with an assigned capacity.
   * Set courseID, startTime, and location to unknown.
   */
-  public course(int capacity) {
+  public course(int capacity)
+  {
     courseID = "unknown";
     startTime = "unknown";
     location = "unknown";
     students = new ArrayList<>();
-    MAX_STUDENTS = capacity;
+    max = capacity;
 
   }
 
@@ -37,8 +39,9 @@ public class course {
   * Add a student to the course.
   * Check if class is not full before adding student.
   */
-  public void addStudent(Student newStudent)  {
-    if(students.size() == MAX)
+  public void addStudent(Student newStudent)
+  {
+    if(students.size() == max)
         System.out.println("The class is full, you cannot enroll.");
     else
     students.add(newStudent);
@@ -47,21 +50,24 @@ public class course {
   /**
   * Remove a student from the course.
   */
-  public void addStudent(Student studentToRemove)  {
+  public void removeStudent(Student studentToRemove)
+  {
     students.remove(studentToRemove);
   }
 
   /**
    * Set the name of the course, such as "CS101".
    */
-  public void setCourse(String courseName)  {
+  public void setCourse(String courseName)
+  {
       courseID = courseName;
   }
 
   /**
    * Set the room number for this course, such as "ROB121"
    */
-  public void setRoom(String roomNumber)  {
+  public void setRoom(String roomNumber)
+  {
       location = roomNumber;
   }
 
@@ -69,7 +75,8 @@ public class course {
    * Set the time for this course. The parameter should define the day
    * and the time of day, such as "M15:30".
    */
-  public void setTime(String timeAndDayString)  {
+  public void setTime(String timeAndDayString)
+  {
       startTime = timeAndDayString;
   }
 
@@ -77,43 +84,48 @@ public class course {
    * Print out a student list with students registered to the course to the standard
    * terminal.
    */
-  public void printList() {
+  public void printList()
+  {
     System.out.println("Enter the courseID you wish to print a student list for.")
     String courseID;
     Scanner sc = new Scanner(System.in);
     courseID = sc.next()
-    if(courseID != null) {
-      for(Student student : students) {
+    if(courseID != null)
+    {
+      for(Student student : students)
+      {
         students.print();
       }
     }
   }
 
-  public String searchStudent(String studentID) {
+  /**
+  * Search a course with a given studentID and return student's name. 
+  */
+  public String searchStudent(String studentID)
+  {
     int index = 0;
     boolean notFound = true;
     Student nextStudent;
-    while(notFound && index < students.size()) {
+    while(notFound && index < students.size())
+    {
       nextStudent = students.get(index);
-      if(nextStudent.getStudentID().equals(studentID)) {
+      if(nextStudent.getStudentID().equals(studentID))
+      {
         notFound = false;
       }
-      else {
+      else
+      {
         index++;
       }
     }
-    if(notFound) {
+    if(notFound)
+    {
       return -1;
     }
-    else {
-      return index;
+    else
+    {
+      return students.getName(index);
     }
-
   }
-
-
-
-
-
-
 }

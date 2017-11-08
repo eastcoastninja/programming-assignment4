@@ -20,7 +20,7 @@ public class student
    */
   public Student(String firstName, String lastName, String studentID)
   {
-      name = firstName + lastName;
+      name = firstName + " " + lastName;
       id = studentID;
   }
 
@@ -47,5 +47,4 @@ public class student
   {
       System.out.println(name + ", student ID: " + id);
   }
-
 }

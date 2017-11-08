@@ -38,11 +38,40 @@ import java.util.ArrayList;
    /**
    * Print a list of all the courses offered.
    */
-   public void printList()
+   public void printAll()
    {
-
+     for(Course course : courses)
+     {
+       System.out.println(courses);
+     }
    }
-   
+
+   /**
+   * Print a list of all the courses not at capacity.
+   */
+   public void printAvailable()
+   {
+       int index = 0;
+       Course checkCourse;
+       boolean notFound = true;
+       while(index < courses.size() && != max)
+       {
+         checkCourse = courses.printAll(index)
+         System.out.println(checkCourse);
+         notfound = false;
+         index++;
+       }
+      if(notFound)
+      {
+        return -1
+      }
+      else
+      {
+        return index;
+      }
+   }
+}
+
 
 
 
