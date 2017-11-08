@@ -38,12 +38,11 @@ public class Course
   /**
   * Add a student to the course.
   */
-  public void addStudent(Student newStudent)
+  public void addStudent(Student newStudent, int capacity)
   {
-    if(students.size() == MAX)
-        System.out.println("The class is full, you cannot enroll.");
-    else 
+      {
         students.add(newStudent);
+      }
   }
 
   /**
