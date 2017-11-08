@@ -51,17 +51,16 @@ import java.util.Scanner;
    // /**
    // * Print a list of all the courses not at capacity.
    // */
-   // public void printAvailable()
+   // public int printAvailable()
    // {
        // int index = 0;
-       // Course checkCourse;
+       // Course course;
        // boolean notFound = true;
        // while(index < courses.size())
        // {
-         // if(courses.size()!= MAX)
-         // checkCourse = courses.printAll(index);
-         // System.out.println(checkCourse);
-         // notfound = false;
+         // if(courses.size()!= course.checkCapacity())
+         // course.printCourseDetails();
+         // notFound = false;
          // index++;
        // }
       // if(notFound)
@@ -74,93 +73,96 @@ import java.util.Scanner;
       // }
    // }
 
-  // /**
-  // * Search the course collection for a specific course.
-  // */
-  // private String searchCourse(String courseID)
-  // {
-    // int index = 0;
-    // boolean notFound = true;
-    // Course nextCourse;
-    // System.out.println("Enter the course you want to search");
-    // Scanner sc = new Scanner(System.in);
-    // courseID = sc.next();
-    // while(notFound && index < courses.size())
-    // {
-      // nextCourse = courses.get(index);
-      // if(course.getCourseID().equals(courseID))
-      // {
-      // notFound = false;
-      // }
-      // else
-          // {
-      // index++;
-      // }
-    // }
-    // if(notFound)
-    // {
-      // return -1;
-    // }
-    // else
-    // {
-      // return index;
-    // }
-  // }
+  /**
+  * Search the course collection for a specific course.
+  */
+  private int searchCourse(String courseID)
+  {
+    int index = 0;
+    boolean notFound = true;
+    Course nextCourse;
+    System.out.println("Enter the course you want to search");
+    Scanner sc = new Scanner(System.in);
+    courseID = sc.next();
+    while(notFound && index < courses.size())
+    {
+      nextCourse = courses.get(index);
+      if(nextCourse.getCourseID().equals(courseID))
+      {
+      notFound = false;
+      }
+      else
+          {
+      index++;
+      }
+    }
+    if(notFound)
+    {
+      return -1;
+    }
+    else
+    {
+      return index;
+    }
+  }
 
-  // /**
-  // * Registrar new student to a course.
-  // */
-  // public void registerStudent(Student newStudent)
-  // {
-      // courses.add(newStudent);
-  // }
+  /**
+  * Registrar new student to a course.
+  */
+  public void registerStudent(Student registerStudent)
+  {
+      Course course;
+      course.addStudent(registerStudent);
+  }
 
-  // /**
-  // * Unregistrar a student from a course.
-  // * Checks if student is registrared to the course before removing.
-  // */
-  // public void unregisterStudent(String studentToRemove)
-  // {
-    // Course nextCourse;
-    // Iterator<Course> it = courses.iterator();
-    // while(it.hasNext())
-    // {
-      // nextCourse = it.next();
-      // if(nextCourse.getCourseID().equals(studentToRemove))
-      // {
-        // it.remove();
-      // }
-      // else
-      // {
-      // }
-    // }
-  // }
+  /**
+  * Unregistrar a student from a course.
+  * Checks if student is registrared to the course before removing.
+  */
+  public void unregisterStudent(String studentToRemove)
+  {
+    Course nextCourse;
+    Iterator<Course> it = courses.iterator();
+    while(it.hasNext())
+    {
+      nextCourse = it.next();
+      if(nextCourse.getCourseID().equals(studentToRemove))
+      {
+        it.remove();
+      }
+      else
+      {
+      }
+    }
+  }
 
-  // /**
-  // * Print a list of all the courses offered.
-  // */
-  // public void printStudentList()
-  // {
-      // Course searchCourse;
-      // Iterator<Course> it = courses.iterator();
-      // while(it.hasNext())
-      // {
-        // searchCourse = it.next();
-        // System.out.println(student.printDetails());
-      // }
-  // }
+  /**
+  * Print a list of all the students registered for a course.
+  */
+  public void printStudentList()
+  {
+      Course searchCourse;
+      Student students;
+      Iterator<Course> it = courses.iterator();
+      while(it.hasNext())
+      {
+        searchCourse = it.next();
+        students.printDetails();
+      }
+  }
 
-  // /**
-  // * Print a specified student's schedule
-  // */
-  // public void printStudentSchedule()
-  // {
-      // Course searchCourse;
-      // Iterator<Course> it = courses.iterator();
-      // while(it.hasNext())
-      // {
-        // course = it.next();
-        // System.out.println(students.getCourseID());
-      // }
-      // }
+  /**
+  * Print a specified student's schedule
+  */
+  public void printStudentSchedule()
+  {
+      Course searchCourse;
+      Student students;
+      Iterator<Course> it = courses.iterator();
+      while(it.hasNext())
+      {
+        searchCourse = it.next();
+        System.out.println(searchCourse.getCourseID());
+      }
+      }
 }
