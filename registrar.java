@@ -70,26 +70,38 @@ import java.util.ArrayList;
         return index;
       }
    }
+
+  /**
+  * Print out a student list with students registered to the course to the standard
+  * terminal.
+  */
+  private String searchCourse(String courseID)
+  {
+    int index = 0;
+    boolean notFound;
+    Course nextCourse;
+    System.out.println("Enter the course you want to search")
+    Scanner sc = new Scanner(System.in);
+    courseID = sc.next()
+    while(notFound && index < courses.size())
+    {
+      nextCourse = courses.get(index);
+      if(course.getCourseID().equals(couseID))
+      {
+      notFound = false;
+      }
+      else
+		  {
+      index++;
+      }
+    }
+    if(notFound)
+    {
+      return -1;
+    }
+    else
+  	{
+      return index;
+    }
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- }

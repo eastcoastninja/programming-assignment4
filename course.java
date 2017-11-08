@@ -86,21 +86,14 @@ public class course
    */
   public void printList()
   {
-    System.out.println("Enter the courseID you wish to print a student list for.")
-    String courseID;
-    Scanner sc = new Scanner(System.in);
-    courseID = sc.next()
-    if(courseID != null)
-    {
       for(Student student : students)
       {
         students.print();
       }
-    }
   }
 
   /**
-  * Search a course with a given studentID and return student's name. 
+  * Search a course with a given studentID and return student's name.
   */
   public String searchStudent(String studentID)
   {
@@ -127,5 +120,13 @@ public class course
     {
       return students.getName(index);
     }
+  }
+
+  /**
+   * Return the student ID of this student.
+   */
+  public String getCourseID()
+  {
+    return courseID;
   }
 }
