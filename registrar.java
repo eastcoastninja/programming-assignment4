@@ -30,7 +30,7 @@ import java.util.ArrayList;
    /**
    * Remove a course from the collection.
    */
-   public void addStudent(Course courseToRemove)
+   public void removeCourse(Course courseToRemove)
    {
      course.remove(courseToRemove);
    }
@@ -72,13 +72,12 @@ import java.util.ArrayList;
    }
 
   /**
-  * Print out a student list with students registered to the course to the standard
-  * terminal.
+  * Search the course collection for a specific course.
   */
   private String searchCourse(String courseID)
   {
     int index = 0;
-    boolean notFound;
+    boolean notFound = true;
     Course nextCourse;
     System.out.println("Enter the course you want to search")
     Scanner sc = new Scanner(System.in);
@@ -104,4 +103,68 @@ import java.util.ArrayList;
       return index;
     }
   }
+
+  /**
+  * Registrar new student to a course.
+  * Checks if course is full before adding student.
+  */
+  public void registerStudent(Student newStudent)
+  {
+    if(course.size() == max)
+        System.out.println("The class is full, you cannot enroll.");
+    else
+      courses.addStudent(newStudent);
+  }
+
+  /**
+  * Unregistrar a student from a course.
+  * Checks if student is registrared to the course before removing.
+  */
+  public void unregisterStudent(String studentToRemove)
+  {
+    Course nextCourse;
+    Iterator<Course> it = courses.iterator();
+    while(it.hasNext())
+    {
+      nextCourse = it.next();
+      if(nextCourse.getName().equals(studentToRemove))
+      {
+        it.remove();
+      }
+      else
+      {
+      }
+    }
+
+    /**
+    * Print a list of all the courses offered.
+    */
+    public void printStudentList()
+    {
+      Course searchCourse
+      Iterator<Course> it = courses.iterator();
+      while(it.hasNext())
+      {
+        course = it.next();
+        System.out.println(students.printList());
+      }
+    }
+
+    /**
+    * Print a specified student's schedule
+    */
+    public void printStudentSchedule()
+    {
+      Course searchCourse
+      Iterator<Course> it = courses.iterator();
+      while(it.hasNext())
+      {
+        course = it.next();
+        System.out.println(students.getCourseID());
+      }
+    }
+
+
+
+
 }

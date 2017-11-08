@@ -37,13 +37,9 @@ public class course
 
   /**
   * Add a student to the course.
-  * Check if class is not full before adding student.
   */
   public void addStudent(Student newStudent)
   {
-    if(students.size() == max)
-        System.out.println("The class is full, you cannot enroll.");
-    else
     students.add(newStudent);
   }
 
