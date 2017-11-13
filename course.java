@@ -19,19 +19,21 @@ public class Course
   // collection of students
   private ArrayList<Student> students;
   // maximum capacity of students for course
-  private final int MAX;
+  private int capacity;
+  
+  private int registered;
 
   /**
   * Create a course with an assigned capacity.
   * Set courseID, startTime, and location to unknown.
   */
-  public Course(int capacity)
+  public Course(int maxStudents)
   {
     courseID = "unknown";
     startTime = "unknown";
     location = "unknown";
     students = new ArrayList<>();
-    MAX = capacity;
+    capacity = maxStudents;
   }
 
   /**
@@ -39,10 +41,12 @@ public class Course
   */
   public void addStudent(Student newStudent)
   {
-    if(students.size() == MAX)
+    if(students.size() == capacity)
         System.out.println("The class is full, you cannot enroll.");
     else
         students.add(newStudent);
+        capacity = capacity - 1;
+        registered += 1;
   }
 
   /**
@@ -50,7 +54,15 @@ public class Course
   */
   public int checkCapacity()
   {
-      return MAX;
+      return capacity;
+  }
+  
+  /**
+  * Checks the number of registered students of a course.
+  */
+  public int numRegistered()
+  {
+      return registered;
   }
 
   /**
@@ -59,6 +71,8 @@ public class Course
   public void removeStudent(Student studentToRemove)
   {
     students.remove(studentToRemove);
+    capacity = capacity + 1;
+    registered -= 1;
   }
 
   /**
@@ -90,26 +104,25 @@ public class Course
    * Print out a student list with students registered to the course to the standard
    * terminal.
    */
-  public void printList()
+  public void printStudentList()
   {
       for(Student student : students)
       {
-        student.printDetails();
+        System.out.println(student.printDetails());
       }
   }
 
   /**
   * Search a course with a given studentID and return student's name.
   */
-  public int searchStudent(String studentID)
+  public String searchStudent(String studentID)
   {
     int index = 0;
     boolean notFound = true;
-    Student nextStudent;
+    Student nextStudent = students.get(index);
 
     while(notFound && index < students.size())
     {
-      nextStudent = students.get(index);
       if(nextStudent.getStudentID().equals(studentID))
       {
         notFound = false;
@@ -122,11 +135,11 @@ public class Course
 
     if(notFound)
     {
-      return -1;
+      return "-1";
     }
     else
     {
-      return index;
+      return nextStudent.getName();
     }
   }
 
@@ -136,13 +149,5 @@ public class Course
   public String getCourseID()
   {
     return courseID;
-  }
-  
-  /**
-   * Print the courseID number to the output terminal.
-   */
-  public void printCourseDetails()
-  {
-      System.out.println(courseID);
   }
 }

@@ -45,8 +45,8 @@ public class Student
   /**
    * Print the student's name and ID number to the output terminal.
    */
-  public void printDetails()
+  public String printDetails()
   {
-      System.out.println(firstName + " " + lastName + ", Student ID: " + studentID);
+      return firstName + " " + lastName + ", Student ID: " + studentID;
   }
 }
