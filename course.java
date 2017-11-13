@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 /**
  * This course class represents a course in a educational system.
  * This class hold the details of a course.
@@ -18,9 +17,9 @@ public class Course
   private String location;
   // collection of students
   private ArrayList<Student> students;
-  // maximum capacity of students for course
+  // maximum capacity of students for a course
   private int capacity;
-  
+  // number of students registered for a course
   private int registered;
 
   /**
@@ -120,7 +119,6 @@ public class Course
     int index = 0;
     boolean notFound = true;
     Student nextStudent = students.get(index);
-
     while(notFound && index < students.size())
     {
       if(nextStudent.getStudentID().equals(studentID))

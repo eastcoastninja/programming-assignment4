@@ -102,7 +102,7 @@ import java.util.Iterator;
   // */
   // public void registerStudent(Student registerStudent)
   // {
-      // courses.add(registerStudent);
+      // courses.add =(new Course(registerStudent));
       // }
 
   // /**
@@ -142,18 +142,33 @@ import java.util.Iterator;
       }
   }
 
-  // /**
-  // * Print a specified student's schedule
-  // */
-  // public void printStudentSchedule()
-  // {
-      // Course searchCourse;
-      // Student students;
-      // Iterator<Course> it = courses.iterator();
-      // while(it.hasNext())
-      // {
-        // searchCourse = it.next();
-        // System.out.println(searchCourse.getCourseID());
-      // }
-      // }
+  /**
+  * Print a specified student's schedule
+  */
+  public String printStudentSchedule(String findStudent)
+  {
+    int index = 0;
+    boolean notFound = true;
+    Course searchCourse = courses.get(index);
+    Student searchStudent;
+    while(notFound && index < courses.size())
+    {
+       if(searchStudent.getName().equals(findStudent))
+       {
+        notFound = false;
+       }
+       else
+       {
+        index++;
+       }
+    }
+    if(notFound)
+    {
+      return "-1";
+    }
+    else
+    {
+      return searchCourse.getCourseID();
+    }
+  }
 }
