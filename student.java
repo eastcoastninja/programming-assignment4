@@ -43,7 +43,7 @@ public class Student
   }
 
   /**
-   * Print the student's name and ID number to the output terminal.
+   * Return the student's name and ID number.
    */
   public String printDetails()
   {

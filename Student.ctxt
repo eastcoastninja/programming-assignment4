@@ -12,5 +12,5 @@ comment3.target=java.lang.String\ getStudentID()
 comment3.text=\n\ Return\ the\ student\ ID\ of\ this\ student.\n
 comment4.params=
 comment4.target=java.lang.String\ printDetails()
-comment4.text=\n\ Print\ the\ student's\ name\ and\ ID\ number\ to\ the\ output\ terminal.\n
+comment4.text=\n\ Return\ the\ student's\ name\ and\ ID\ number.\n
 numComments=5

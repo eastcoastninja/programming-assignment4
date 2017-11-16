@@ -40,12 +40,14 @@ public class Course
   */
   public void addStudent(Student newStudent)
   {
-    if(students.size() == capacity)
-        System.out.println("The class is full, you cannot enroll.");
-    else
+    if(students.size() < capacity && newStudent != null)
+    {
         students.add(newStudent);
         capacity = capacity - 1;
         registered += 1;
+    }
+    else
+       System.out.println("The class is full, you cannot enroll.");
   }
 
   /**
@@ -55,7 +57,7 @@ public class Course
   {
       return capacity;
   }
-  
+
   /**
   * Checks the number of registered students of a course.
   */
@@ -69,9 +71,16 @@ public class Course
   */
   public void removeStudent(Student studentToRemove)
   {
-    students.remove(studentToRemove);
-    capacity = capacity + 1;
-    registered -= 1;
+    if(students.size() > 0 && studentToRemove != null)
+    {
+      students.remove(studentToRemove);
+      capacity = capacity + 1;
+      registered -= 1;
+    }
+    else
+    {
+      System.out.println("Student is not enrolled in the course.");
+    }
   }
 
   /**

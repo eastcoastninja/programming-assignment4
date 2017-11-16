@@ -11,7 +11,8 @@ import java.util.Iterator;
  {
    // collection of courses offered
    private ArrayList<Course> courses;
-
+   // instance of a student object
+   private Student students;
    /**
     * Create a new registrar with an empty collection of courses.
     */
@@ -58,7 +59,7 @@ import java.util.Iterator;
         {
            System.out.println(course.getCourseID());
         }
-        
+
         else
         {
            System.out.println(course.getCourseID() +": "+ "This course is at capacity.");
@@ -66,7 +67,7 @@ import java.util.Iterator;
      }
    }
 
-   
+
   /**
   * Search the course collection for a specific course.
   * Private methods are only accessible from within the class.
@@ -97,34 +98,29 @@ import java.util.Iterator;
     }
   }
 
-  // /**
-  // * Registrar new student to a course.
-  // */
-  // public void registerStudent(Student registerStudent)
-  // {
-      // courses.add =(new Course(registerStudent));
-      // }
+  /**
+  * Registrar new student to a course.
+  */
+  public void registerStudent(Course course, Student registerStudent)
+  {
+    Course registerCourse = course;
+    if(registerStudent != null)
+    {
+      registerCourse.addStudent(registerStudent);
+    }
+  }
 
-  // /**
-  // * Unregistrar a student from a course.
-  // * Checks if student is registrared to the course before removing.
-  // */
-  // public void unregisterStudent(String studentToRemove)
-  // {
-    // Course nextCourse;
-    // Iterator<Course> it = courses.iterator();
-    // while(it.hasNext())
-    // {
-      // nextCourse = it.next();
-      // if(nextCourse.getCourseID().equals(studentToRemove))
-      // {
-        // it.remove();
-      // }
-      // else
-      // {
-      // }
-    // }
-  // }
+  /**
+  * Unregistrar a student from a course.
+  */
+  public void unregisterStudent(Course course, Student unregisterStudent)
+  {
+    Course unregisterCourse = course;
+    if(unregisterStudent != null)
+    {
+      unregisterCourse.removeStudent(unregisterStudent);
+    }
+  }
 
   /**
   * Print a list of all the students registered for a course.
@@ -137,7 +133,7 @@ import java.util.Iterator;
       while(it.hasNext())
       {
         searchCourse = it.next();
-        System.out.println(searchCourse.getCourseID());
+        System.out.println("Below is the class list for: " + searchCourse.getCourseID());
         searchCourse.printStudentList();
       }
   }
@@ -145,30 +141,22 @@ import java.util.Iterator;
   /**
   * Print a specified student's schedule
   */
-  public String printStudentSchedule(String findStudent)
+  public void printStudentSchedule(String studentIDNum)
   {
-    int index = 0;
-    boolean notFound = true;
-    Course searchCourse = courses.get(index);
-    Student searchStudent;
-    while(notFound && index < courses.size())
-    {
-       if(searchStudent.getName().equals(findStudent))
+   int index = 0;
+   Course checkCourse = courses.get(index);
+   Iterator<Course> it = courses.iterator();
+   while(it.hasNext())
+   {
+       if(checkCourse.searchStudent(studentIDNum) != null)
        {
-        notFound = false;
+         checkCourse = it.next();
+         System.out.println(checkCourse.getCourseID());
        }
        else
        {
-        index++;
+           System.out.println("You are not registered for: " + checkCourse.getCourseID());
        }
-    }
-    if(notFound)
-    {
-      return "-1";
-    }
-    else
-    {
-      return searchCourse.getCourseID();
-    }
+   }
   }
 }
